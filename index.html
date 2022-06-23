@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gabriel Sarch</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      html,body,h1,h2,h3,h4,h5,h6 {font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;}
+      <!-- .cite { background:#f0f0f0; padding:10px; font-size:18px} -->
+      .cite { padding:0px; background:#ffffff; font-size:18px}
+      .card {border: 1px solid #ccc}
+      img { margin-bottom:-6px;}
+      p { font-size:18px;}
+      a {text-decoration: none; color: #2196F3;}
+      .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+      box-shadow:
+      0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+      5px 5px 0 0px #fff, /* The second layer */
+      5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+      10px 10px 0 0px #fff, /* The third layer */
+      10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+      15px 15px 0 0px #fff, /* The fourth layer */
+      15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+      20px 20px 0 0px #fff, /* The fifth layer */
+      20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+      25px 25px 0 0px #fff, /* The fifth layer */
+      25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+      margin-left: 10px;
+      margin-right: 60px;
+      }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZWTD5V0L2H"></script>
+    <script>
+            window.dataLayer = window.dataLayer || [];
+    
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+    
+            gtag('js', new Date());
+    
+            gtag('config', 'G-ZWTD5V0L2H');
+        </script>
+    <meta charset="UTF-8">
+    <meta name="description" content="BlobGAN: Spatially Disentangled Scene Representations">
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BlobGAN: Spatially Compositional Scene Representations</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#f5ece5">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#276FBF">
+    <meta name="msapplication-TileColor" content="#276FBF">
+    <link rel="stylesheet" href="/fonts.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.1/dist/js/splide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-intersection@0.2.0/dist/js/splide-extension-intersection.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.1/dist/css/splide.min.css">
+    <style>
+    
+    .btn {
+
+
+    /* color: #1b212b; */
+    color: rgb(59, 123, 160);
+
+
+    background-color: #8bb2ff1e
+
+
+    }
+
+    body {
+        padding-bottom: 50px;
+    }
+
+    .btn-primary {
+
+
+    color: #1b212b;
+    
+
+
+    background-color: #a7c4fff1
+
+
+    }
+
+    .gabe-background {background-color:#8bb2ff59;color: #434849;}
+
+    .btn.round {
+        border-radius: 24px;
+    }
+    .btn-primary.round {
+        border-radius: 24px;
+    }
+
+    .links a {
+        display: inline-flex;
+        /*flex-direction: column;*/
+        align-items: center;
+        text-decoration: none;
+        border-radius: 5px;
+        padding: 5px 7px;
+        color: #f6f3f1 !important;
+        /* font-family: 'GT Ultra', sans-serif !important; */
+        font-weight: 400;
+        /*margin: 0 10px;*/
+        transition: transform .2s;
+        background-color: rgba(var(--btn-bgc), 1);
+    }
+
+    a:link {
+        color: rgb(59, 123, 160);
+        /* background-color: transparent; */
+        text-decoration: none;
+        }
+
+
+    .links a:nth-child(1) {
+        --btn-bgc: 237, 100, 90;
+    }
+
+    .links a:hover {
+        transform: scale(1.2);
+        color: #f6f3f1 !important;
+    }
+
+    .links a:active {
+        transform: scale(1.3);
+    }
+
+    .links a:nth-child(2) {
+        --btn-bgc: 47, 138, 196;
+    }
+
+    .links a:nth-child(3) {
+        --btn-bgc: 229, 134, 6;
+    }
+
+    .links a:nth-child(4) {
+        --btn-bgc: 133, 180, 51;
+    }
+
+    .links a:nth-child(5) {
+        --btn-bgc: 204, 97, 176;
+    }
+
+    .links a span.material-symbols-rounded {
+        margin-right: .25rem;
+    }
+
+    .links a:not(:last-child) {
+        /*margin-right: 20px;*/
+    }
+
+
+    .links .material-symbols-rounded {
+        font-size: 1.25rem;
+    }
+
+
+    .links i {
+        font-size: 28px;
+    }
+
+    .example { background-color: rgba(229, 235, 245, 0.295); border-radius: 24px; border: 1px solid rgba(0, 0, 0, 0.329);} 
+
+    .tab {
+    margin-left: 2.5em
+    }
+
+</style>
+  </head>  
+  <body class="w3-white">
+    <h5> <a href="/" style="text-decoration: none; color:inherit;">Gabriel Sarch</a> </h5> 
+    <br><br>
+    <div class="w3-content w3-margin-top w3-margin-bottom" style="max-width:960px;">
+    <!-- <div class="bkg w3-content" style="max-width:100%; margin-top:2em;"> -->
+        <div class="w3-row-padding w3-content" style="max-width:960px;">
+    
+        <div class="w3-row w3-white">
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tr style="padding:0px">
+            <td style="padding-right:2.5%;width:70%;vertical-align:middle">
+            <h1>Hi, I'm Gabe Sarch</h1>
+            <p>I'm a third-year Ph.D. student at Carnegie Mellon University in the <a href="https://www.cmu.edu/ni/academics/pnc/" style="text-decoration: none;">Neural Computation</a> program under the supervision of Dr. <a href="https://www.cs.cmu.edu/~katef/" style="text-decoration: none;">Katerina Fragkiadaki</a> and Dr. <a href="https://sites.google.com/andrew.cmu.edu/tarrlab/people/michael-j-tarr" style="text-decoration: none;">Mike Tarr</a>. My work is supported by the <a href="https://www.nsfgrfp.org/" style="text-decoration: none;">National Science Foundation Graduate Research Fellowship</a>.  Previously, I received a B.S. in Biomedical Engineering from the University of Rochester, where I studied the marmoset visual system under Dr. <a href="https://marmolab.bcs.rochester.edu/index.html" style="text-decoration: none;">Jude Mitchell</a>.</p>
+            <div>
+            <a class="w3-button btn w3-white w3-text-blue w3-border" href="aharley_cv_latest.pdf">CV</a>
+            <a class="w3-button btn w3-white w3-text-blue w3-border" href="https://scholar.google.com/citations?hl=en&user=OB6vAtkAAAAJ">Google Scholar</a> 
+            <a class="w3-button btn w3-white w3-text-blue w3-border" href="https://twitter.com/AdamWHarley">Twitter</a>
+            <a class="w3-button btn w3-white w3-text-blue w3-border" href="https://github.com/aharley">Github</a>
+            <a class="w3-button btn w3-white w3-text-blue w3-border" style="cursor: pointer" id="email" title="click to reveal">Email</a>
+            <span id="email_div" class="email">(hidden)</span> <!-- will reveal email; trick from karpathy's page -->
+            </div>
+            </td>
+            <td style="padding-left:2.5%;width:40%;max-width:30%">
+            <img style="width:100%;max-width:100%;border-radius:50%" alt="profile photo" src="images/face_gates2.jpg">
+            </td>
+            </tr>
+        </table>
+        
+        </div>
+        </div>
+      <div class="w3-row-padding">      
+	  <div class="w3-left-align">
+	    <!-- <h1>Hi, I'm Gabe Sarch</h1>
+        <p>I'm a third-year Ph.D. student at Carnegie Mellon University in the <a href="https://www.cmu.edu/ni/academics/pnc/" style="text-decoration: none;">Neural Computation</a> program under the supervision of Dr. <a href="https://www.cs.cmu.edu/~katef/" style="text-decoration: none;">Katerina Fragkiadaki</a> and Dr. <a href="https://sites.google.com/andrew.cmu.edu/tarrlab/people/michael-j-tarr" style="text-decoration: none;">Mike Tarr</a>. My work is supported by the <a href="https://www.nsfgrfp.org/" style="text-decoration: none;">National Science Foundation Graduate Research Fellowship</a>.  Previously, I received a B.S. in Biomedical Engineering from the University of Rochester, where I studied the marmoset visual system under Dr. <a href="https://marmolab.bcs.rochester.edu/index.html" style="text-decoration: none;">Jude Mitchell</a>.</p>
+        <br><br> -->
+        <br><br>
+        <h1 style="font-size:1.3vw"><strong>Embodied intelligence</strong></h1>
+        <p>Animals utilize self-supervision, commonsense reasoning, and interaction to make sense of sensory inputs and perform embodied tasks without a significant amount of explicit labels or instructions. However, most state-of-the-art embodied systems require millions of human annotations and are not able to generalize their previously learned knowledge to accurately reason about novel inputs or tasks. My research focuses on embodied artificial agents that learn, act and reason by interactive and active means, drawing from psychological and neuroscientific literature when it is useful.</p>
+        <br>
+        <h1 style="font-size:1.3vw"><strong>Computer vision models of the primate visual system</strong></h1>
+        <p>Deep neural networks optimized for visual tasks have been shown to be good predictive models of neural responses in visual areas (e.g. fMRI, electrophysiology - see <a href="https://arxiv.org/abs/2001.07092" style="text-decoration: none;">here</a>). By modeling the representations and behaviors of primates with AI systems optimized for different tasks and inputs, we can better understand the neural representations underlying naturalistic stimuli processing in primates.</p>
+	  </div>
+      <br>
+      <spacer type="horizontal" width="5" height="5"> </spacer>
+      <br>
+      <div class="w3-left-align">
+	    <h2>Publications and Preprints</h2>
+	  </div>
+      <!-- <div class="example"> -->
+        <div>
+        <!-- <br> -->
+        <hr>
+      <div class="w3-left-align">
+	    <h1 style="font-size:1.7vw; margin-left:25px;"> TIDEE: Novel Room Reorganization using Visuo-Semantic Common Sense Priors</h1>
+	    <h5 style="margin-left:20px;"> <a href="https://www.gabesarch.me" style="text-decoration:none" class="btn btn-light gabe-background round btn-sm" role="button" style="background-color: #386dd8ea">GH Sarch</a> &thinsp; <a href="https://zfang399.github.io/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">Z Fang</a> &thinsp; <a href="https://cs.cmu.edu/~aharley/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">AW Harley</a> &thinsp; <a href="https://paulschydlo.com/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">P Schydlo</a> &thinsp; <a href="https://sites.google.com/andrew.cmu.edu/tarrlab/people/michael-j-tarr" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">MJ Tarr</a> &thinsp; <a href="https://saurabhg.web.illinois.edu/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">S Gupta</a> &thinsp; <a href="https://www.cs.cmu.edu/~katef/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">K Fragkiadaki</a></h5>
+	    <h5 style="font-size:1.2vw; margin-left:25px;"> Preprint</h5>        
+	  </div>
+      <div class="w3-left-align" style="margin-left:22px;">
+      <div class="linkscontainer">
+        <div class="links mt-4">
+       
+        <a href="" target="_blank"><span class="material-symbols-rounded">
+        description
+        </span><span>Paper</span></a> &emsp;
+        <a href="https://github.com/Gabesarch/TIDEE#tidy-task" target="_blank"><span class="material-symbols-rounded">
+            web
+        </span><span>Project Page</span></a> &emsp;
+        <a href="https://github.com/Gabesarch/TIDEE" target="_blank"><span class="material-symbols-rounded">
+        code
+        </span><span>Code</span></a> &emsp;
+    </div>
+        </div>
+        </div>
+        <br>
+        <hr>
+
+
+        <div class="w3-left-align">
+            <h1 style="font-size:1.7vw; margin-left:25px;"> Beyond Fixation: detailed characterization of neural selectivity in free-viewing primates</h1>
+        <h5 style="margin-left:20px;"> <a href="https://jake.vision/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">JL Yates</a> &thinsp; <a href="https://marmolab.bcs.rochester.edu/Coop/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">SH Coop</a> &thinsp; <a href="https://www.gabesarch.me" style="text-decoration:none" class="btn btn-light gabe-background round btn-sm" role="button" style="background-color: #386dd8ea">GH Sarch</a> &thinsp; <a style="text-decoration:none" class="btn btn-light round btn-sm" role="button">R Wu</a> &thinsp; <a href="https://neurotheory.umd.edu/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">D Butts</a> &thinsp; <a href="https://aplab.bcs.rochester.edu/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">M Rucci </a> &thinsp;<a href="https://marmolab.bcs.rochester.edu/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">Jude Mitchell</a> &thinsp;</h5>
+            <h5 style="font-size:1.2vw; margin-left:25px;"> Preprint</h5>        
+          </div>
+          <div class="w3-left-align" style="margin-left:22px;">
+          <div class="linkscontainer">
+            <div class="links mt-4">
+           
+            <a href="https://www.biorxiv.org/content/10.1101/2021.11.06.467566v1" target="_blank"><span class="material-symbols-rounded">
+            description
+            </span><span>Paper</span></a> &emsp;
+        </div>
+            </div>
+            </div>
+            <br>
+            <hr>
+
+        <div class="w3-left-align">
+            <h1 style="font-size:1.7vw; margin-left:25px;"> Move to See Better: Towards Self-Improving Embodied Object Detection</h1>
+            <h5 style="margin-left:20px;"> <a href="https://www.gabesarch.me" style="text-decoration:none" class="btn btn-light gabe-background round btn-sm" role="button" style="background-color: #386dd8ea">GH Sarch*</a> &thinsp; <a href="https://zfang399.github.io/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">Z Fang*</a> &thinsp; <a href="https://ayushjain1144.github.io/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">A Jain*</a> &thinsp; <a href="https://www.cs.cmu.edu/~aharley/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">AW Harley </a> &thinsp; <a href="https://sites.google.com/andrew.cmu.edu/tarrlab/people/michael-j-tarr" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">MJ Tarr</a> &thinsp; <a href="https://saurabhg.web.illinois.edu/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">S Gupta</a> &thinsp; <a href="https://www.cs.cmu.edu/~katef/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">K Fragkiadaki</a></h5>
+            <h5 style="font-size:0.8vw; margin-left:25px;"> *equal contribution</h5>  
+            <h5 style="font-size:1.2vw; margin-left:25px;"> BMVC 2021</h5>        
+            </div>
+            <div class="w3-left-align" style="margin-left:22px;">
+            <div class="linkscontainer">
+                <div class="links mt-4">
+                
+                <a href="https://arxiv.org/abs/2012.00057" target="_blank"><span class="material-symbols-rounded">
+                description
+                </span><span>Paper</span></a> &emsp;
+                <a href="https://ayushjain1144.github.io/SeeingByMoving/" target="_blank"><span class="material-symbols-rounded">
+                    web
+                </span><span>Project Page</span></a> &emsp;
+                <a href="https://github.com/ayushjain1144/SeeingByMoving" target="_blank"><span class="material-symbols-rounded">
+                code
+                </span><span>Code</span></a> &emsp;
+            </div>
+                </div>
+                </div>
+            <br>
+            <hr>
+            <h5><a href="https://scholar.google.com/citations?user=9rYWAhsAAAAJ&hl=en">See all my publications</a></h5>   
+
+
+
+    </div>
+    
+	</div>
+      </div>
+      
+  </body>
+
+</html>
