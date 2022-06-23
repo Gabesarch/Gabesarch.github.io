@@ -50,11 +50,11 @@
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BlobGAN: Spatially Compositional Scene Representations</title>
+    <!-- <title>BlobGAN: Spatially Compositional Scene Representations</title>
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+    <link rel="manifest" href="site.webmanifest"> -->
     <meta name="theme-color" content="#f5ece5">
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#276FBF">
     <meta name="msapplication-TileColor" content="#276FBF">
@@ -68,15 +68,9 @@
     <style>
     
     .btn {
-
-
     /* color: #1b212b; */
     color: rgb(59, 123, 160);
-
-
     background-color: #8bb2ff1e
-
-
     }
 
     body {
@@ -84,27 +78,55 @@
     }
 
     .btn-primary {
-
-
     color: #1b212b;
-    
-
-
     background-color: #a7c4fff1
-
-
     }
 
     .paperimage {
-	  padding-right:0.8%;
-	  width:25%;
+	  padding-right:2.5%;
+	  width:30%;
 	  max-width:20%;
       }
 
     .papertext {
-	  width:80%;
-	  vertical-align:middle;
+    width:80%;
+    vertical-align:middle;
+    }
+
+    .papertable {
+	  width:100%;
+	  border:0px;
+	  border-spacing:0px;
+	  border-collapse:separate;
+	  margin-right:auto;
+	  margin-left:auto;
+	  margin-bottom:2em;
       }
+
+    .papercontainer {
+    min-height: 10em;
+    display: table-cell;
+    vertical-align: middle
+    }
+    .paper {; }
+    .padright {padding-right:1em; }
+    .padimg { padding-bottom:1em; padding-top: 1em; width: 100%}
+    .nopadimg { width: 100%}
+    .icon {
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    }
+    .email {
+    /* margin-top: 10px; */
+    padding-top: 10px;
+    /* color: #555; */
+    float: right;
+    height: 0;
+    opacity: 0;
+    transition: opacity 0.7s;
+    }
 
     .gabe-background {background-color:#8bb2ff59;color: #434849;}
 
@@ -130,10 +152,15 @@
         background-color: rgba(var(--btn-bgc), 1);
     }
 
-    a:link {
+    /* a:link {
         color: rgb(59, 123, 160);
-        /* background-color: transparent; */
         text-decoration: none;
+        } */
+    
+        a, a:link, a:visited {
+        color: rgb(59, 123, 160);
+        text-decoration: none;
+        /* background-color: #778899; */
         }
 
 
@@ -247,7 +274,7 @@
     <tr style="padding:0px">
         <td class="paperimage">
         <img src="images/tidee_gif.gif" class="nopadimg">
-    </td>
+        </td>
     <td class="papertext">
       <div class="w3-left-align">
 	    <!-- <h1 style="font-size:1.0vw; margin-left:25px;"> TIDEE: Novel Room Reorganization using Visuo-Semantic Common Sense Priors</h1> -->
@@ -311,7 +338,7 @@
             <td class="papertext">
         <div class="w3-left-align">
             <h4 style="margin-left:25px;"> Move to See Better: Towards Self-Improving Embodied Object Detection</h4>
-            <h5 style="margin-left:20px;"> <a href="https://www.gabesarch.me" style="text-decoration:none" class="btn btn-light gabe-background round btn-sm" role="button" style="background-color: #386dd8ea">GH Sarch*</a> &thinsp; <a href="https://zfang399.github.io/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">Z Fang*</a> &thinsp; <a href="https://ayushjain1144.github.io/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">A Jain*</a> &thinsp; <a href="https://www.cs.cmu.edu/~aharley/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">AW Harley </a> &thinsp; <a href="https://sites.google.com/andrew.cmu.edu/tarrlab/people/michael-j-tarr" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">MJ Tarr</a> &thinsp; <a href="https://saurabhg.web.illinois.edu/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">S Gupta</a> &thinsp; <a href="https://www.cs.cmu.edu/~katef/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">K Fragkiadaki</a></h5>
+            <h5 style="margin-left:20px;"> <a href="https://www.gabesarch.me" style="text-decoration:none" class="btn btn-light gabe-background round btn-sm" role="button" style="background-color: #386dd8ea">GH Sarch*</a> &thinsp; <a href="https://zfang399.github.io/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">Z Fang*</a> &thinsp; <a href="https://ayushjain1144.github.io/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">A Jain*</a> &thinsp; <a href="https://www.cs.cmu.edu/~aharley/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">AW Harley </a> &thinsp; <a href="https://www.cs.cmu.edu/~katef/" style="text-decoration:none" class="btn btn-light round btn-sm" role="button">K Fragkiadaki</a></h5>
             <h7 style="margin-left:25px;"> *equal contribution</h7>
             <h5 style="margin-left:25px;"> BMVC 2021</h5>        
             </div>
