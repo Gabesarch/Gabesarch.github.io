@@ -19,7 +19,21 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
-      html,body,h1,h2,h3,h4,h5,h6 {font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;}
+      /* html,body,h1,h2,h3,h4,h5,h6 {font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;}
+       */
+       :root {
+    /* Tailwind-like Inter stack */
+    --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system,
+                 BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+                 Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+                 "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  html, body, h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+  }
+  /* Optional: better rendering */
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body { font-optical-sizing: auto; line-height: 1.5; }
       .cite { padding:0px; background:#ffffff; font-size:18px}
       .card {border: 1px solid #ccc}
       img { margin-bottom:-6px;}
@@ -51,16 +65,16 @@
     }
 
     .paperimage {
-	  padding-right:0.8%;
-	  /* width:30%; */
-      height: 150px;
-      width: auto;
-	  max-width:20%;
+	  padding-right: 1.5%;
+      width: 32%;
+	  min-width: 240px;
+	  max-width: 340px;
+      vertical-align: middle;
       }
 
     .papertext {
-    width:80%;
-    vertical-align:middle;
+    width: auto;
+    vertical-align: middle;
     }
 
     .papertable {
@@ -81,7 +95,21 @@
     .paper {; }
     .padright {padding-right:1em; }
     .padimg { padding-bottom:1em; padding-top: 1em; width: 100%}
-    .nopadimg { width: 100%}
+    .nopadimg {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        border-radius: 16px;
+        background: #f0f2f7;
+    }
+    .nopadimg--contain {
+        object-fit: contain;
+    }
+    .nopadimg--bottom {
+        object-position: center bottom;
+    }
     .icon {
     float: left;
     width: 40px;
@@ -305,7 +333,31 @@
         padding-left: 6px;
         padding-bottom: 3px;
     }
+    .research-blurb { font-size: 18px; line-height: 1.7; margin: 32px 0; }
+    .research-blurb p { margin: 0 0 16px; }
+    .research-blurb__lead { font-weight: 500; letter-spacing: 0.01em; }
+    .research-blurb__list { list-style: disc; margin: 0; padding-left: 24px; display: grid; gap: 12px; }
+    .research-blurb__topic { font-weight: 600; }
+    .news { margin: 48px 0; padding: 32px 36px; background: #f6f8ff; border: 1px solid #dbe6ff; border-radius: 18px; box-shadow: 0 12px 24px -18px rgba(56, 109, 216, 0.45); }
+    .news__header { display: flex; align-items: center; justify-content: flex-start; gap: 16px; margin-bottom: 24px; }
+    .news__header h1 { margin: 0; font-size: 28px; }
+    .news__list { display: grid; gap: 18px; margin: 0; padding: 0; max-height: 420px; overflow-y: auto; padding-right: 12px; }
+    .news__item { display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding-left: 12px; border-left: 3px solid #c6d9ff; }
+    .news__date { font-size: 15px; font-weight: 600; letter-spacing: 0.02em; color: #4a4a4a; }
+    .news__text { margin: 0; font-size: 17px; line-height: 1.6; }
+    .news__text a { color: inherit; border-bottom: 1px solid rgba(56, 109, 216, 0.3); }
+    .news__text a:hover { border-color: rgba(56, 109, 216, 0.7); }
+    .publications-header { margin-bottom: 24px; }
+    @media (max-width: 640px) {
+        .news { padding: 24px; }
+        .news__list { max-height: 60vh; padding-right: 0; }
+        .news__item { grid-template-columns: 1fr; border-left: none; border-top: 3px solid #c6d9ff; padding: 18px 0 0; }
+    }
 </style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..900&display=swap" rel="stylesheet">
 
   </head>  
   <body class="w3-white">
@@ -317,12 +369,20 @@
             <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tr style="padding:0px">
             <td style="padding-right:2.5%;width:70%;vertical-align:middle">
-            <h1>Hi, I'm Gabe Sarch</h1>
-            <p>I'm a fifth-year Ph.D. student at Carnegie Mellon University in the <a href="https://www.cmu.edu/ni/index.html" style="text-decoration: none;">Neural Computation</a> and <a href="https://www.ml.cmu.edu/" style="text-decoration: none;">Machine Learning</a> <a href="https://www.cmu.edu/ni/academics/pnc/pnc-machine-learning.html" style="text-decoration: none;">joint PhD program</a> under the supervision of Dr. <a href="https://www.cs.cmu.edu/~katef/" style="text-decoration: none;">Katerina Fragkiadaki</a> and Dr. <a href="https://sites.google.com/andrew.cmu.edu/tarrlab/people/michael-j-tarr" style="text-decoration: none;">Mike Tarr</a>. My work is supported by the <a href="https://www.nsfgrfp.org/" style="text-decoration: none;">National Science Foundation Graduate Research Fellowship</a>. I received a B.S. in Biomedical Engineering from the University of Rochester, where I studied the marmoset visual system under Dr. <a href="https://marmolab.bcs.rochester.edu/index.html" style="text-decoration: none;">Jude Mitchell</a>. I previously held research positions at <a href="https://www.microsoft.com/en-us/research/group/future-experiences/#:~:text=The%20Future%20Experiences%20(FX)%20research,and%20observational%20study%20of%20human" style="text-decoration: none;">Microsoft Research</a> and <a href="https://yutori.com/" style="text-decoration: none;">Yutori AI</a>.</p>
-            <p><b>Starting Fall 2025:</b> I will join Princeton University's <a href="https://pli.princeton.edu/" style="text-decoration: none;">PLI</a> as a Postdoctoral Fellow.</p>
+                <h1>Hi, I'm Gabe Sarch</h1>
+                <p>
+                  I'm a Postdoctoral Research Fellow in 
+                  <a href="https://pli.princeton.edu/" style="text-decoration: none;">Princeton Language and Intelligence (PLI)</a> at Princeton University. I completed my Ph.D. at Carnegie Mellon University in Machine Learning (<a href="https://ml.cmu.edu/about/" style="text-decoration: none;">MLD</a> & <a href="https://www.cmu.edu/ni/index.html" style="text-decoration: none;">NI</a>) in 2025. I was fortunate to be advised by Drs. <a href="https://www.cs.cmu.edu/~katef/" style="text-decoration: none;">Katerina Fragkiadaki</a> and <a href="https://sites.google.com/andrew.cmu.edu/tarrlab/people/michael-j-tarr" style="text-decoration: none;">Mike Tarr</a>.
+                </p>
+                  <p>
+                  Previously, I held research positions at 
+                  <a href="https://www.microsoft.com/en-us/research/group/future-experiences/#:~:text=The%20Future%20Experiences%20(FX)%20research,and%20observational%20study%20of%20human" style="text-decoration: none;">Microsoft Research</a> 
+                  and <a href="https://yutori.com/" style="text-decoration: none;">Yutori AI</a>, and received the National Science Foundation Graduate Research Fellowship.
+                  
+                </p>
             </td>
             <td style="padding-left:0.5%;width:40%;max-width:30%">
-            <img style="width:100%;max-width:100%;border-radius: 25px;" alt="profile photo" src="images/main_photo.png">
+            <img style="width:100%;max-width:100%;border-radius: 25px;" alt="profile photo" src="images/main_photo.jpg">
             </td>
             </tr>
         </table>
@@ -336,11 +396,153 @@
                     style="left: 10px; top: 10px;" id="saveForm" /></a>
             <a href="gsarch_CV.pdf"> &thinsp; <input type="image" src="images/CV.png" width="40" height="40" name="saveForm"
                     class="btTxt submit" style="left: 10px; top: 10px;" id="saveForm" /></a>
-            <a href="mailto:gsarch@andrew.cmu.edu"> &thinsp; <input type="image" src="images/email.png" width="40" height="40"
+            <a href="mailto:gs1693@princeton.edu"> &thinsp; <input type="image" src="images/email_grey.png" width="40" height="40"
                     name="saveForm" class="btTxt submit" style="left: 10px; top: 10px;" id="saveForm" /></a>
         </div>
         </div>
         </div>
+        <br>
+        <section id="research-blurb" class="research-blurb">
+            <!-- My research focus is on learning methods for general multimodal reasoning and decision-making. This comes in two parts: 1) understanding how active intelligence works in humans and animals, and 2) building generalist multimodal agents that learn to reason and act in dynamic, multimodal environments. -->
+            <p>
+                My research focuses on learning methods for multimodal reasoning and control. I pursue (i) reverse-engineering active intelligence in humans and animals, and (ii) algorithms for generalist agents that learn to reason and act from interactive, multimodal experience.
+            </p>
+            <p class="research-blurb__lead">
+                Some focus areas towards this goal:
+            </p>
+            <ul class="research-blurb__list">
+                <li><span class="research-blurb__topic">Grounded Visual Reasoning.</span> <a href="https://arxiv.org/abs/2505.23678" style="text-decoration: none;">ViGoRL</a>, <a href="https://arxiv.org/abs/2505.01578" style="text-decoration: none;">MICA</a></li>
+                <li><span class="research-blurb__topic">Memory-Augmented Agents.</span> <a href="https://arxiv.org/abs/2406.14596" style="text-decoration: none;">ICAL</a>, <a href="https://arxiv.org/abs/2310.15127" style="text-decoration: none;">HELPER</a>, <a href="https://arxiv.org/abs/2207.10761" style="text-decoration: none;">TIDEE</a></li>
+                <li><span class="research-blurb__topic">Characterizing Agentic Vision.</span> <a href="https://www.biorxiv.org/content/10.1101/2023.05.29.542635v2" style="text-decoration: none;">Brain Dissection</a>, <a href="http://127.0.0.1:3000/images/CCN_2023.pdf" style="text-decoration: none;">View Prediction Models</a>, <a href="https://www.nature.com/articles/s41467-023-38564-9" style="text-decoration: none;">Beyond Fixation</a></li>
+            </ul>
+        </section>
+        <section class="news" aria-labelledby="news-heading">
+            <div class="news__header">
+                <h1 id="news-heading">News</h1>
+            </div>
+            <div class="news__list">
+                <article class="news__item">
+                    <time class="news__date" datetime="2025-05">Sept 2025</time>
+                    <p class="news__text">Gave a talk on grounded reinforcement learning for visual reasoning at the <a href="https://pli.princeton.edu/events/2025/grounded-reinforcement-learning-visual-reasoning" style="text-decoration: none;">PLI Seminar</a>.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2025-05">Sept 2025</time>
+                    <p class="news__text">Started a Postdoctoral Research Fellow position with <a href="https://pli.princeton.edu/" style="text-decoration: none;">Princeton Language and Intelligence (PLI)</a> at Princeton University.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2025">Sept 2025</time>
+                    <p class="news__text">Serving on the AISTATS 2025 Program Committee.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2025-08">Aug 2025</time>
+                    <p class="news__text">Completed my Ph.D. in Machine Learning and Neural Computation at Carnegie Mellon University.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2025">Aug 2025</time>
+                    <p class="news__text">“Out of Sight, Not Out of Context? Egocentric Spatial Reasoning in VLMs Across Disjoint Frames” appearing at EMNLP 2025.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2025-05">May 2025</time>
+                    <p class="news__text">Released the <a href="https://arxiv.org/abs/2505.23678" style="text-decoration: none;">ViGoRL</a> preprint on grounded reinforcement learning for multimodal reasoning. Code, models, datasets are all open-source <a href="https://github.com/Gabesarch/ViGoRL" style="text-decoration: none;">here</a>.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2025">March 2025</time>
+                    <p class="news__text">“Reanimating Images using Neural Representations of Dynamic Stimuli” accepted as an oral presentation at CVPR 2025.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2025">March 2025</time>
+                    <p class="news__text">“Multimodal Interactive Contextualized Real World Task Assistance from a Single Demonstration” published in ACL Findings 2025.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2024-12">Sept 2024</time>
+                    <p class="news__text">“VLM Agents Generate Their Own Memories” received a NeurIPS 2024 Spotlight recognition.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2024-08">Aug 2024</time>
+                    <p class="news__text">Joined Yutori as Technical Staff (AI) to build multimodal model infrastructure through Dec 2024.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2024-06">June 2024</time>
+                    <p class="news__text">“Towards Unified 2D-3D Visual Scene Understanding Foundation Models” spotlighted at CVPR 2024.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2024-05">May 2024</time>
+                    <p class="news__text">Started a research internship at Microsoft Research working on the MICA real-time assistance system.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2024">May 2024</time>
+                    <p class="news__text">Gave an invited talk on task planning with LLMs at Carnegie Mellon’s Search-based Planning Laboratory.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2024">May 2024</time>
+                    <p class="news__text">Presented “Open-Ended Instructable Embodied Agents” at CMU Catalyst’s LLM Agents Seminar.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2023">May 2023</time>
+                    <p class="news__text">Completed an M.S. in Machine Learning Research at Carnegie Mellon University.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2024">Jan 2024</time>
+                    <p class="news__text">“HELPER-X: A Unified Instructable Embodied Agent” presented at the ICLR 2024 LLM Agents Workshop.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2023">Oct 2023</time>
+                    <p class="news__text">Won the Embodied AI Workshop Rearrangement Challenge at CVPR 2023.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2023">Aug 2023</time>
+                    <p class="news__text">“Open-Ended Instructable Embodied Agents with Memory-Augmented LLMs” published in EMNLP Findings 2023.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2023">Aug 2023</time>
+                    <p class="news__text">“Brain Dissection: fMRI-trained Networks Reveal Spatial Selectivity” accepted at NeurIPS 2023.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2023">March 2023</time>
+                    <p class="news__text">“3D View Prediction Models of the Dorsal Visual Stream” presented at CCN 2023.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2023">March 2023</time>
+                    <p class="news__text">“Beyond Fixation: detailed characterization of neural selectivity in free-viewing primates” published in Nature Communications 2023.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2023">Jan 2023</time>
+                    <p class="news__text">Delivered the brAIn Seminar talk “Spatial Processing During Natural Scene Viewing.”</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2023">Feb 2023</time>
+                    <p class="news__text">Gave an invited lecture in CMU’s Biologically Intelligent Exploration course on evidence-based decision making.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2022">Feb 2022</time>
+                    <p class="news__text">Runner-up in the Amazon Alexa Prize SimBot Embodied Dialogue Challenge.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2022">March 2022</time>
+                    <p class="news__text">“TIDEE: Tidying Up Novel Rooms using Visuo-Semantic Common Sense Priors” accepted at ECCV 2022.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2021">June 2021</time>
+                    <p class="news__text">“Move to See Better: Self-Improving Embodied Object Detection” accepted at BMVC 2021.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2020">May 2020</time>
+                    <p class="news__text">Awarded the NSF Graduate Research Fellowship to support graduate research through 2025.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2020-08">Aug 2020</time>
+                    <p class="news__text">Began Ph.D. studies in Machine Learning and Neural Computation at Carnegie Mellon University.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2022">2022</time>
+                    <p class="news__text">Received the Biomedical Engineering Award (Top of Class) for Academic Excellence.</p>
+                </article>
+                <article class="news__item">
+                    <time class="news__date" datetime="2019">2019</time>
+                    <p class="news__text">Awarded the University of Rochester Center for Visual Science Research Fellowship.</p>
+                </article>
+            </div>
+        </section>
       <div class="w3-row-padding">     
         <br><br>
 	  <!-- <div class="w3-left-align">
@@ -354,8 +556,8 @@
       <br>
       <spacer type="horizontal" width="5" height="5"> </spacer>
       <br>
-      <div class="w3-left-align">
-	    <h1>Research</h1>
+      <div class="w3-left-align publications-header">
+	    <h1>Selected Publications</h1>
 	  </div>
       <!-- <div class="example"> -->
         <div>
@@ -445,8 +647,11 @@
         <hr>
         <table class="papertable">
             <tr style="padding:0px">
-                <td class="paperimage">
+                <!-- <td class="paperimage">
                     <img src="images/shopping_296Agent-ezgif.com-video-to-gif-converter.gif" class="nopadimg">
+                </td> -->
+                <td class="paperimage">
+                    <video src="images/learning_loop.mp4" class="nopadimg nopadimg--contain" autoplay muted loop></video>
                 </td>
                 <td class="papertext">
                     <div class="w3-left-align">
@@ -537,7 +742,7 @@
         <table class="papertable">
             <tr style="padding:0px">
                 <td class="paperimage">
-                    <img src="images/braindissectteaser_cropped_fast.gif" class="nopadimg">
+                    <img src="images/braindissectteaser_cropped_fast.gif" class="nopadimg nopadimg--contain nopadimg--bottom">
                 </td>
                 <td class="papertext">
                     <div class="w3-left-align">
