@@ -102,7 +102,7 @@
         display: block;
         object-fit: cover;
         border-radius: 16px;
-        background: #f0f2f7;
+        background: #fff;
     }
     .nopadimg--contain {
         object-fit: contain;
@@ -393,6 +393,7 @@
     .news__text a { color: inherit; border-bottom: 1px solid rgba(110, 120, 140, 0.35); }
     .news__text a:hover { border-color: rgba(110, 120, 140, 0.65); }
     .publications-header { margin-bottom: 24px; }
+    .selected-publications hr { border-color: #000; opacity: 1; }
     @media (max-width: 640px) {
         .news { padding: 24px; }
         .news__list { max-height: 60vh; padding-right: 0; }
@@ -678,9 +679,9 @@
       <br>
       <div class="w3-left-align publications-header">
 	    <h1>Selected Publications</h1>
-	  </div>
+      </div>
       <!-- <div class="example"> -->
-        <div>
+        <div class="selected-publications">
         <!-- <br> -->
         <table class="papertable">
             <tr style="padding:0px">
