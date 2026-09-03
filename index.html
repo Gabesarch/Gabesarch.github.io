@@ -371,11 +371,18 @@
         height: 60%;
         position: relative;
     }
-    .research-blurb { font-size: 18px; line-height: 1.7; margin: 32px 0; }
+    .intro-layout { display: grid; grid-template-columns: minmax(0, 70fr) minmax(0, 30fr); align-items: stretch; margin-bottom: 32px; }
+    .intro-copy { display: flex; flex-direction: column; padding-right: 2.5%; }
+    .intro-copy p:last-of-type { margin-bottom: 0; }
+    .intro-photo { padding-left: 0.5%; }
+    .intro-photo img { display: block; margin-bottom: 0; }
+    .social-links { display: flex; align-items: center; gap: 8px; margin-block: auto; }
+    .social-links a, .social-links input { display: block; }
+    .research-blurb { font-size: 18px; line-height: 1.7; margin: 0 0 32px; }
     .research-blurb p { margin: 0 0 16px; }
     .research-blurb__lead { font-weight: 500; letter-spacing: 0.01em; }
     .research-focus-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 40px; margin-top: 14px; }
-    .research-focus { padding-top: 12px; border-top: 1px solid #e1e4e8; }
+    .research-focus { padding-top: 12px; border-top: 1px solid #000; }
     .research-focus__title { display: block; margin-bottom: 4px; font-weight: 600; }
     .research-focus p { margin: 0 0 4px; font-size: 16px; line-height: 1.5; color: #000; }
     .research-focus__papers { font-size: 16px; }
@@ -386,12 +393,14 @@
     .news { margin: 48px 0; padding: 32px 36px; background: #fff; border: 1px solid #000; border-radius: 18px; box-shadow: 0 10px 24px -18px rgba(29, 36, 53, 0.25); }
     .news__header { display: flex; align-items: center; justify-content: flex-start; gap: 16px; margin-bottom: 24px; }
     .news__header h1 { margin: 0; font-size: 28px; }
-    .news__list { display: grid; gap: 18px; margin: 0; padding: 0; max-height: 420px; overflow-y: auto; padding-right: 12px; }
+    .news__list { display: grid; gap: 18px; margin: 0; padding: 0; max-height: 420px; overflow-y: auto; padding-right: 12px; scrollbar-color: #000 #fff; }
+    .news__list::-webkit-scrollbar { width: 10px; }
+    .news__list::-webkit-scrollbar-track { background: #fff; }
+    .news__list::-webkit-scrollbar-thumb { background: #000; border: 2px solid #fff; border-radius: 10px; }
     .news__item { display: grid; grid-template-columns: 130px 1fr; gap: 20px; }
     .news__date { font-size: 15px; font-weight: 600; letter-spacing: 0.02em; color: #000; }
     .news__text { margin: 0; font-size: 17px; line-height: 1.6; color: #000; }
-    .news__text a { color: inherit; border-bottom: 1px solid rgba(110, 120, 140, 0.35); }
-    .news__text a:hover { border-color: rgba(110, 120, 140, 0.65); }
+    .news__text a { color: rgb(59, 123, 160); border-bottom: none; }
     .publications-header { margin-bottom: 24px; }
     .selected-publications hr { border-color: #000; opacity: 1; }
     @media (max-width: 640px) {
@@ -410,11 +419,10 @@
     <!-- <h5> <a href="/" style="text-decoration: none; color:inherit;">Gabriel Sarch</a> </h5>  -->
     <br><br>
     <div class="w3-content w3-margin-top w3-margin-bottom" style="max-width:960px;">
-        <div class="w3-row-padding w3-content" style="max-width:960px;">
+        <div class="w3-content" style="max-width:960px;">
         <div class="w3-row w3-white">
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tr style="padding:0px">
-            <td style="padding-right:2.5%;width:70%;vertical-align:middle">
+            <div class="intro-layout">
+            <div class="intro-copy">
                 <h1>Hi, I'm Gabe Sarch</h1>
                 <p>
                   I'm a Postdoctoral Research Fellow in 
@@ -426,28 +434,26 @@
                   and <a href="https://yutori.com/" style="text-decoration: none;">Yutori AI</a>, and received the National Science Foundation Graduate Research Fellowship.
                   
                 </p>
-            </td>
-            <td style="padding-left:0.5%;width:40%;max-width:30%">
-            <img style="width:100%;max-width:100%;border-radius: 25px;" alt="profile photo" src="images/main_photo.jpg">
-            </td>
-            </tr>
-        </table>
-        <div>
-            <a href="https://twitter.com/GabrielSarch"><input type="image" src="images/twitter_grey.png" width="40" height="40"
+                <div class="social-links">
+            <a href="https://twitter.com/GabrielSarch"><input type="image" src="images/twitter_outlined.png" width="40" height="40"
                     name="saveForm" class="btTxt submit" style="left: 10px; top: 10px;" id="saveForm" /></a>
-            <a href="https://github.com/Gabesarch"> &thinsp; <input type="image" src="images/github.png" width="40" height="40"
+            <a href="https://github.com/Gabesarch"><input type="image" src="images/github_outlined.png" width="40" height="40"
                     name="saveForm" class="btTxt submit" style="left: 10px; top: 10px;" id="saveForm" /></a>
-            <a href="https://scholar.google.com/citations?user=9rYWAhsAAAAJ&hl=en"> &thinsp; <input type="image"
-                    src="images/googlescholar_grey.png" width="40" height="40" name="saveForm" class="btTxt submit"
+            <a href="https://scholar.google.com/citations?user=9rYWAhsAAAAJ&hl=en"><input type="image"
+                    src="images/googlescholar_outlined.png" width="40" height="40" name="saveForm" class="btTxt submit"
                     style="left: 10px; top: 10px;" id="saveForm" /></a>
-            <a href="gsarch_CV.pdf"> &thinsp; <input type="image" src="images/CV.png" width="40" height="40" name="saveForm"
+            <a href="gsarch_CV.pdf"><input type="image" src="images/CV_outlined.png" width="40" height="40" name="saveForm"
                     class="btTxt submit" style="left: 10px; top: 10px;" id="saveForm" /></a>
-            <a href="mailto:gs1693@princeton.edu"> &thinsp; <input type="image" src="images/email_grey.png" width="40" height="40"
+            <a href="mailto:gs1693@princeton.edu"><input type="image" src="images/email_outlined.png" width="40" height="40"
                     name="saveForm" class="btTxt submit" style="left: 10px; top: 10px;" id="saveForm" /></a>
+                </div>
+            </div>
+            <div class="intro-photo">
+                <img style="width:100%;max-width:100%;border-radius: 25px;" alt="profile photo" src="images/main_photo.jpg">
+            </div>
         </div>
         </div>
         </div>
-        <br>
         <section id="research-blurb" class="research-blurb">
             <!-- My research focus is on learning methods for general multimodal reasoning and decision-making. This comes in two parts: 1) understanding how active intelligence works in humans and animals, and 2) building generalist multimodal agents that learn to reason and act in dynamic, multimodal environments. -->
             <!-- <p>
